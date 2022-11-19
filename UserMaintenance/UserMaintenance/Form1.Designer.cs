@@ -62,7 +62,7 @@ namespace UserMaintenance
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(282, 78);
+            this.btnAdd.Location = new System.Drawing.Point(282, 75);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(199, 23);
             this.btnAdd.TabIndex = 5;
@@ -72,12 +72,13 @@ namespace UserMaintenance
             // 
             // btnFajlba
             // 
-            this.btnFajlba.Location = new System.Drawing.Point(282, 120);
+            this.btnFajlba.Location = new System.Drawing.Point(282, 118);
             this.btnFajlba.Name = "btnFajlba";
             this.btnFajlba.Size = new System.Drawing.Size(199, 23);
             this.btnFajlba.TabIndex = 6;
             this.btnFajlba.Text = "button1";
             this.btnFajlba.UseVisualStyleBackColor = true;
+            this.btnFajlba.Click += new System.EventHandler(this.btnFajlba_Click);
             // 
             // Form1
             // 
