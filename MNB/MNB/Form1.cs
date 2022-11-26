@@ -24,9 +24,13 @@ namespace MNB
         {
             InitializeComponent();
             dataGridView1.DataSource = Rates;
-            GetRates();
+            //GetRates();
+
+
 
             ReadXml();
+
+
 
             chartRateData.DataSource = Rates;
             chartRateData.Series[0].ChartType = SeriesChartType.Line;
@@ -37,8 +41,10 @@ namespace MNB
             chartRateData.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
             chartRateData.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
             chartRateData.ChartAreas[0].AxisY.IsStartedFromZero = false;
-        }
 
+
+
+        }
         private void ReadXml()
         {
             XmlDocument xml = new XmlDocument();
@@ -62,6 +68,8 @@ namespace MNB
             }
         }
 
+
+
         private static string GetRates()
         {
             MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
@@ -71,7 +79,7 @@ namespace MNB
                 startDate = "2020-01-01",
                 endDate = "2020-06-30"
             };
-            GetExchangeRatesResponseBody response = (GetExchangeRatesResponseBody)mnbService.GetExchangeRates(request);
+            GetExchangeRatesResponseBody response = mnbService.GetExchangeRates(request);
             string result = response.GetExchangeRatesResult;
             MessageBox.Show(result);
             return result;

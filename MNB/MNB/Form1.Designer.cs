@@ -1,4 +1,7 @@
-﻿
+﻿using System;
+
+
+
 namespace MNB
 {
     partial class Form1
@@ -7,6 +10,8 @@ namespace MNB
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+
+
 
         /// <summary>
         /// Clean up any resources being used.
@@ -21,7 +26,11 @@ namespace MNB
             base.Dispose(disposing);
         }
 
+
+
         #region Windows Form Designer generated code
+
+
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -29,30 +38,48 @@ namespace MNB
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.getExchangeRatesResultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.getExchangeRatesResponseBodyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chartRateData = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getExchangeRatesResponseBodyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRateData)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // dataGridView1
-            // 
+            //
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(48, 28);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.getExchangeRatesResultDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.getExchangeRatesResponseBodyBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(356, 185);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(303, 360);
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 0;
-            // 
+            //
+            // getExchangeRatesResultDataGridViewTextBoxColumn
+            //
+            this.getExchangeRatesResultDataGridViewTextBoxColumn.DataPropertyName = "GetExchangeRatesResult";
+            this.getExchangeRatesResultDataGridViewTextBoxColumn.HeaderText = "GetExchangeRatesResult";
+            this.getExchangeRatesResultDataGridViewTextBoxColumn.Name = "getExchangeRatesResultDataGridViewTextBoxColumn";
+            //
+            // getExchangeRatesResponseBodyBindingSource
+            //
+            this.getExchangeRatesResponseBodyBindingSource.DataSource = typeof(MNB.MnbServiceReference.GetExchangeRatesResponseBody);
+            //
             // chartRateData
-            // 
+            //
             chartArea1.Name = "ChartArea1";
             this.chartRateData.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartRateData.Legends.Add(legend1);
-            this.chartRateData.Location = new System.Drawing.Point(396, 64);
+            this.chartRateData.Location = new System.Drawing.Point(24, 69);
             this.chartRateData.Name = "chartRateData";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -61,9 +88,9 @@ namespace MNB
             this.chartRateData.Size = new System.Drawing.Size(300, 300);
             this.chartRateData.TabIndex = 1;
             this.chartRateData.Text = "chart1";
-            // 
+            //
             // Form1
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
@@ -71,16 +98,32 @@ namespace MNB
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getExchangeRatesResponseBodyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRateData)).EndInit();
             this.ResumeLayout(false);
 
+
+
         }
+
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         #endregion
 
+
+
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn getExchangeRatesResultDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource getExchangeRatesResponseBodyBindingSource;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRateData;
     }
 }
-
