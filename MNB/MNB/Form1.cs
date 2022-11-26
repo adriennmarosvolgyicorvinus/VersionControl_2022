@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 
 
@@ -23,11 +24,34 @@ namespace MNB
             InitializeComponent();
             dataGridView1.DataSource = Rates;
             GetRates();
+
+            ReadXml();
         }
 
+        private void ReadXml()
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(GetRates());
+            foreach (XmlElement item in xml.DocumentElement)
+            {
+                RateData rd = new RateData();
+                Rates.Add(rd);
+                rd.Currency = item.ChildNodes[0].Attributes["curr"].Value;
+                rd.Date = Convert.ToDateTime(item.Attributes["date"].Value);
+                decimal unit = Convert.ToDecimal(item.ChildNodes[0].Attributes["unit"].Value);
+                decimal value = Convert.ToDecimal(item.ChildNodes[0].InnerText);
+                if (unit != 0)
+                {
+                    rd.Value = value / unit;
+                }
+                else
+                {
+                    rd.Value = value;
+                }
+            }
+        }
 
-
-        private static void GetRates()
+        private static string GetRates()
         {
             MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
             GetExchangeRatesRequestBody request = new GetExchangeRatesRequestBody()
@@ -39,6 +63,7 @@ namespace MNB
             GetExchangeRatesResponseBody response = (GetExchangeRatesResponseBody)mnbService.GetExchangeRates(request);
             string result = response.GetExchangeRatesResult;
             MessageBox.Show(result);
+            return result;
         }
     }
 }
