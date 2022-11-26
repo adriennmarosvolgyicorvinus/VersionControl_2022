@@ -15,6 +15,7 @@ namespace MNB
         public Form1()
         {
             InitializeComponent();
+
         }
     }
 }
