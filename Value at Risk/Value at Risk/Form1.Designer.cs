@@ -40,7 +40,7 @@ namespace Value_at_Risk
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(592, 382);
+            this.dataGridView1.Size = new System.Drawing.Size(694, 346);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
@@ -48,7 +48,7 @@ namespace Value_at_Risk
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(12, 400);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(592, 170);
+            this.dataGridView2.Size = new System.Drawing.Size(694, 170);
             this.dataGridView2.TabIndex = 1;
             // 
             // Form1
