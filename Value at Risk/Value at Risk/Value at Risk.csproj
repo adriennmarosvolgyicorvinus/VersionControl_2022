@@ -60,6 +60,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Entities\PortfolioItem.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
