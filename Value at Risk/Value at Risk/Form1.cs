@@ -19,6 +19,8 @@ namespace Value_at_Risk
 
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
 
+        List<decimal> Nyereségek = new List<decimal>();
+
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace Value_at_Risk
 
             CreatePortfolio();
 
-            List<decimal> Nyereségek = new List<decimal>();
+
             int intervalum = 30;
             DateTime kezdőDátum = (from x in ticks select x.TradingDay).Min();
             DateTime záróDátum = new DateTime(2016, 12, 30);
@@ -46,6 +48,12 @@ namespace Value_at_Risk
                                         .ToList();
             // MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
 
+           // Mentes();
+
+        }
+
+        private void Mentes()
+        {
             SaveFileDialog sfv = new SaveFileDialog();
             sfv.ShowDialog();
             using (StreamWriter sw = new StreamWriter(sfv.FileName))
@@ -57,7 +65,6 @@ namespace Value_at_Risk
                 }
 
             }
-
         }
 
         private void CreatePortfolio()
@@ -82,6 +89,11 @@ namespace Value_at_Risk
                 value += (decimal)last.Price * item.Volume;
             }
             return value;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Mentes();
         }
     }
 }
