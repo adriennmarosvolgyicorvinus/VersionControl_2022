@@ -26,5 +26,6 @@ namespace NegyedikGyak
         }
     
         public virtual DbSet<Flat> Flat { get; set; }
+        public object Flats { get; internal set; }
     }
 }
