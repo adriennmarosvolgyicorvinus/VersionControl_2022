@@ -52,9 +52,49 @@ namespace NegyedikGyak
 
         private void CreateTable()
         {
+            string[] headers = new string[] {
+     "Kód",
+     "Eladó",
+     "Oldal",
+     "Kerület",
+     "Lift",
+     "Szobák száma",
+     "Alapterület (m2)",
+     "Ár (mFt)",
+     "Négyzetméter ár (Ft/m2)"};
 
+            object[,] values = new object[flats.Count, headers.Length];
+            int counter = 0;
+            Excel.Range r;
+
+            for (int i = 0; i < headers.Length; i++)
+            {
+            }
+
+             r = xlSheet.get_Range(GetCell(2, 1), 
+                       GetCell(flats.Count + 1, headers.Length));
+            r.Value = values;
+            r = xlSheet.get_Range(GetCell(2, 9),
+                        GetCell(flats.Count, 9));
+            r.Value = "=1000000*" + GetCell(2, 8) + "/" + GetCell(2, 7);
         }
 
+        private string GetCell(int x, int y)
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
+
+            return ExcelCoordinate;
+        }
 
         public Form1()
         {
